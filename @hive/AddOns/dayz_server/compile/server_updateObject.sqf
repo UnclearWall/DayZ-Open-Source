@@ -21,7 +21,7 @@ switch (_type) do {
 			_position
 		];
 		_fuel = 0;
-		if (_object isKindOf "Vehicle") then {
+		if (_object isKindOf "AllVehicles") then {
 			_fuel = fuel _object;
 		};
 		_key = format["CHILD:305:%1:%2:%3:",_objectID,_worldspace,_fuel];
@@ -62,7 +62,7 @@ switch (_type) do {
 			_position
 		];
 		_fuel = 0;
-		if (_object isKindOf "Vehicle") then {
+		if (_object isKindOf "AllVehicles") then {
 			_fuel = fuel _object;
 		};
 		_key = format["CHILD:305:%1:%2:%3:",_objectID,_worldspace,_fuel];
