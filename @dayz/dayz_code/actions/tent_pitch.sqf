@@ -4,7 +4,7 @@ call gear_ui_init;
 _item = _this;
 _location = player modeltoworld [0,2.5,0];
 _location set [2,0];
-_building = nearestObject [(vehicle player), "TentStorage"];
+_building = nearestObject [(vehicle player), "Building"];
 _isOk = [(vehicle player),_building] call fnc_isInsideBuilding;
 
 if (!_isOk) then {
