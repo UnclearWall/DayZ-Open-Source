@@ -1,8 +1,9 @@
-DayZ Community HiveEXT Project
+DayZ Community Project
 =========================
 
-This is a Community HiveEXT project for DayZ.
+This is a Community Dayz project.
 This code is currently compatible with DayZ 1.7.2.6 and ArmA 2 OA beta patch build 97771.
+Now including Rajkosto Hive - Source code can be found here (https://github.com/rajkosto/hive)
 
 This would not be possible without the work of Rocket and Guru Abdul. We also use the fantastic cPBO from Kegetys (www.kegetys.fi) and wget for Windows by the GnuWin32 team (gnuwin32.sourceforge.net).
 
@@ -25,6 +26,9 @@ Other Branch names are induvidual fix's for diffrent issues.
 
 Directories
 ===========
+ - @Dayz - Source Code for Dayz
+ - @Hive - Source Code For the HiveEXT
+ - HiveEXT.dll - Rajkosto Hive - Source code can be found here (https://github.com/rajkosto/hive)
 
 Installation
 ============
