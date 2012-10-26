@@ -37,7 +37,7 @@ if (_button == 1) then {
 		_outputOriented = 	getNumber	(_config >> "outputOriented") == 1;
 		_height = _height + (0.025 * safezoneH);
 		_compile =  format["_id = '%2' %1;",_script,_item];
-		uiControl = _control;
+		uiNamespace setVariable ['uiControl', _control];
 		if (_outputOriented) then {
 			/*
 				This flag means that the action is output oriented
