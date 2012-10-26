@@ -16,6 +16,7 @@ _hasFuelE = 	"ItemJerrycanEmpty" in magazines player;
 _hasRawMeat = 	"FoodSteakRaw" in magazines player;
 _hasKnife = 	"ItemKnife" in items player;
 _hasToolbox = 	"ItemToolbox" in items player;
+//_hasTent = 		"ItemTent" in items player;
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _nearLight = 	nearestObject [player,"LitObject"];
 _canPickLight = false;
@@ -114,6 +115,14 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 3))
 		player removeAction s_player_fireout;
 		s_player_fireout = -1;
 	};
+	
+	//place tent
+	//if(_hasTent and _canDo) then {
+	//		s_player_placetent = player addAction [localize "Place Tent", "\z\addons\dayz_code\actions\tent_pitch.sqf",cursorTarget, 0, false, true, "", ""];
+	//} else {
+	//	player removeAction s_player_placetent;
+	//	s_player_placetent = -1;
+	//};
 	
 	//Packing my tent
 	if(cursorTarget isKindOf "TentStorage" and _canDo and _ownerID == dayz_characterID) then {
