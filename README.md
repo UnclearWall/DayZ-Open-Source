@@ -9,6 +9,29 @@ This would not be possible without the work of Rocket and Guru Abdul. We also us
 
 **NOTE**: No support is implied or offered for pirated copies of ArmA 2.
 
+HOTFIX : 26th OCTOBER 2012
+=============
+	Affected addons:
+		* dayz_code		1.7.2.*
+		* dayz_server 	(server admins only)
+	
+	Developer's Note: 
+		* 
+	Developer Changelog:
+		*
+	Community Notes: 
+		* 
+	Community Changelog:
+		* [NEW] 	Tents can no longer be placed on concrete.
+		* [FIXED] 	Building checks for tent placement (No longer place tents in buildings).
+		* [FIXED] 	Tents now are one click place.
+		* [FIXED] 	Fixed function for checking if in buildings.
+		* [UPDATED] 	Vehicle repair menus now all replaced.
+		* [NEW] 	Vehicle menus now list all damaged parts no matter if you have the item or not.
+		* [NEW] 	Vehicle repair menus will now let you know the exact item you need to repair on failed repair attempts.
+		* [FIXED] 	Fixed function for checking if in buildings.
+
+
 Prerequisites
 =============
 
