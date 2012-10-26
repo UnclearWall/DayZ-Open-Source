@@ -1,30 +1,30 @@
 private["_unit1","_building","_type","_relPos","_boundingBox","_min","_max","_myX","_myY","_myZ","_inside"];
 _unit1 = _this select 0;
-_building = _this select 1;
-//_building = nearestObject [player, "HouseBase"];
- 
-//diag_log ("Building: " + str(_building) );
+//_building = _this select 1;
+_building = nearestObject [player, "HouseBase"];
  
 _type = typeOf _building;
- 
-//diag_log ("Building type: " + str(_type) );
 
 _relPos = _building worldToModel (getPosATL _unit1);
 _boundingBox = boundingBox _building;
+diag_log ("DEBUG: Building: " + str(_building) );
+diag_log ("DEBUG: Building Type: " + str(_type) );
+diag_log ("DEBUG: BoundingBox: " + str(_boundingBox) );
+
 _min = _boundingBox select 0;
 _max = _boundingBox select 1;
-		 
+			 
 //diag_log ("Min: " + str(_min) );
 //diag_log ("Max: " + str(_max) );
-		 
+			 
 _myX = _relPos select 0;
 _myY = _relPos select 1;
 _myZ = _relPos select 2;
-		 
+			 
 //diag_log ("X: " + str(_myX) );
 //diag_log ("Y: " + str(_myY) );
 //diag_log ("Z: " + str(_myZ) );
-
+	
 if ((_myX > (_min select 0)) and (_myX < (_max select 0))) then {
 		if ((_myY > (_min select 1)) and (_myY < (_max select 1))) then {
 				if ((_myZ > (_min select 2)) and (_myZ < (_max select 2))) then {
@@ -33,15 +33,5 @@ if ((_myX > (_min select 0)) and (_myX < (_max select 0))) then {
 		} else { _inside = false; };
 } else { _inside = false; };
 
-//allowed
-//if (["forest",dayz_surfaceType] call fnc_inString) then { diag_log ("surface forest"); };
-//if (["grass",dayz_surfaceType] call fnc_inString) then { diag_log ("surface grass"); };
-//if (["dirt",dayz_surfaceType] call fnc_inString) then { diag_log ("surface dirt"); };
-//if (["soil",dayz_surfaceType] call fnc_inString) then { diag_log ("surface soil"); };
-
-//blocked
-//if (["concrete",dayz_surfaceType] call fnc_inString) then { diag_log ("surface concrete"); };
-//if (["wood",dayz_surfaceType] call fnc_inString) then { diag_log ("surface wood"); };
-
-//diag_log ("isinBuilding Check: " + str(_inside) );
+diag_log ("isinBuilding Check: " + str(_inside) );
 _inside
