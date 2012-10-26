@@ -4,8 +4,21 @@ call gear_ui_init;
 _item = _this;
 _location = player modeltoworld [0,2.5,0];
 _location set [2,0];
-_building = nearestObject [(vehicle player), "TentStorage"];
+_building = nearestObject [(vehicle player), "HouseBase"];
 _isOk = [(vehicle player),_building] call fnc_isInsideBuilding;
+//_isOk = true;
+
+diag_log ("Pitch Tent: " + str(_isok) );
+
+//allowed
+if (["forest",dayz_surfaceType] call fnc_inString) then { _isOk = false; diag_log ("surface forest"); };
+//if (["grass",dayz_surfaceType] call fnc_inString) then { _isOk = false; diag_log ("surface grass"); };
+
+//blocked
+if (["concrete",dayz_surfaceType] call fnc_inString) then { _isOk = true; diag_log ("surface concrete"); };
+//if (["wood",dayz_surfaceType] call fnc_inString) then { _isOk = true; diag_log ("surface concrete"); };
+
+diag_log ("Pitch Tent Surface: " + str(_isok) );
 
 if (!_isOk) then {
 	//remove tentbag
