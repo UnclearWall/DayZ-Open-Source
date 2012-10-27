@@ -12,6 +12,8 @@ if ("FoodSteakRaw" in magazines player) then {
 	_id = [player,70,true,(getPosATL player)] spawn player_alertZombies;
 	sleep _wait;
 	for "_x" from 1 to _qty do {
+		_hasFoodMeat = 	"FoodSteakRaw" in magazines player;
+		if (!_hasFoodMeat) exitWith {cutText [format[(localize "str_player_31"),_text,"cook"] , "PLAIN DOWN"]};
 		player removeMagazine "FoodSteakRaw";
 		player addMagazine "FoodSteakCooked";
 		sleep 1;
