@@ -18,6 +18,15 @@ server_playerSync =			compile preprocessFileLineNumbers "\z\addons\dayz_server\c
 //zombie_initialize =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\zombie_initialize.sqf";
 zombie_findOwner =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\zombie_findOwner.sqf";
 
+server_updateNearbyObjects =	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_updateNearbyObjects.sqf";
+
+vehicle_handleInteract = {
+	private["_object"];
+	_object = _this select 0;
+	[_object, "all"] call server_updateObject;
+	[_object, "damage", true] call server_updateObject;
+};
+
 //event Handlers
 eh_localCleanup =			{
 	_object = _this select 0;

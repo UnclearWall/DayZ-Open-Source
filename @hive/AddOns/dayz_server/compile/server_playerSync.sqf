@@ -185,6 +185,14 @@ if (_characterID != "0") then {
 				_key call server_hiveWrite;
 			};
 		};
+		
+		// If player is in a vehicle, keep its position updated
+		if (vehicle _character != _character) then {
+			[vehicle _character, "position"] call server_updateObject;
+		};
+		
+		// Force gear updates for nearby vehicles/tents
+		[_charPos] call server_updateNearbyObjects;
 
 		//Reset timer
 		if (_timeSince > 0) then {
