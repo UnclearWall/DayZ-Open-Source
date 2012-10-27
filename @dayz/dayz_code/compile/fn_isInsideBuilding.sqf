@@ -7,9 +7,9 @@ _type = typeOf _building;
 
 _relPos = _building worldToModel (getPosATL _unit1);
 _boundingBox = boundingBox _building;
-diag_log ("DEBUG: Building: " + str(_building) );
-diag_log ("DEBUG: Building Type: " + str(_type) );
-diag_log ("DEBUG: BoundingBox: " + str(_boundingBox) );
+//diag_log ("DEBUG: Building: " + str(_building) );
+//diag_log ("DEBUG: Building Type: " + str(_type) );
+//diag_log ("DEBUG: BoundingBox: " + str(_boundingBox) );
 
 _min = _boundingBox select 0;
 _max = _boundingBox select 1;
@@ -33,5 +33,5 @@ if ((_myX > (_min select 0)) and (_myX < (_max select 0))) then {
 		} else { _inside = false; };
 } else { _inside = false; };
 
-diag_log ("isinBuilding Check: " + str(_inside) );
+//diag_log ("isinBuilding Check: " + str(_inside) );
 _inside
