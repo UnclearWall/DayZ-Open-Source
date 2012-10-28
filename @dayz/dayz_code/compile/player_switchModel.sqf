@@ -27,7 +27,13 @@ private ["_playerUID"];
 //BackUp Weapons and Mags
 private ["_weapons","_magazines","_primweapon","_secweapon"];
 	_weapons 	= weapons player;
-	_magazines	= magazines player;
+	_magazines	= call player_countmagazines; //magazines player;
+
+	if ( (_playerUID == dayz_playerUID) && (count _magazines == 0) && (count (magazines player) > 0 )) exitWith {cutText ["can't count magazines!", "PLAIN DOWN"]};
+
+
+//	if ( count _magazines == 0 ) exitWith {cutText ["can't count magazines!", "PLAIN DOWN"]};
+
 	_primweapon	= primaryWeapon player;
 	_secweapon	= secondaryWeapon player;
 
@@ -53,7 +59,7 @@ private ["_newBackpackType","_backpackWpn","_backpackMag"];
 	};
 
 //Get Muzzle
-	_currentWpn = "";
+	_currentWpn = currentWeapon player;
 	_muzzles = getArray(configFile >> "cfgWeapons" >> _currentWpn >> "muzzles");
 	if (count _muzzles > 1) then {
 		_currentWpn = currentMuzzle player;
@@ -84,7 +90,7 @@ private ["_newBackpackType","_backpackWpn","_backpackMag"];
 
 //Equip New Charactar
 	{
-		_newUnit addMagazine _x;
+		if (typeName _x == "ARRAY") then {_newUnit addMagazine [_x select 0,_x select 1] } else { _newUnit addMagazine _x };
 		//sleep 0.05;
 	} forEach _magazines;
 	

@@ -1,4 +1,4 @@
-HOTFIX : 26th OCTOBER 2012
+HOTFIX : 27th OCTOBER 2012
 
 	Affected addons:
 		* dayz_code		1.7.2.*
@@ -14,6 +14,7 @@ HOTFIX : 26th OCTOBER 2012
 		* 
 
 	Community Changelog:
+	Client.pbo
 		* [NEW] 	Tents can no longer be placed on concrete.
 		* [FIXED] 	Building checks for tent placement (No longer place tents in buildings).
 		* [FIXED] 	Tents now are one click place.
@@ -21,8 +22,25 @@ HOTFIX : 26th OCTOBER 2012
 		* [UPDATED] 	Vehicle repair menus now all replaced.
 		* [NEW] 	Vehicle menus now list all damaged parts no matter if you have the item or not.
 		* [NEW] 	Vehicle repair menus will now let you know the exact item you need to repair on failed repair attempts.
-		* [FIXED] 	Fixed function for checking if in buildings.
+Needs Checking
+		* [FIXED] 	Vehicle Damage is now fully working.
+		* [FIXED] 	Vehicle Killed is now in effect fully destroyed vehilces will now set corret in db.
+		* [FIXED] 	Tents Now add and remove from db.
+		* [FIXED] 	Food can no longer be consumed if the player does not have in inventory.
+		* [FIXED] 	water can no longer be consumed if the player does not have in inventory.
+		* [UPDATED] 	Updated UI control.
+		* [NEW] 	Toolbox is now needed for all repiars.
+		* [NEW] 	New Combat System If you fire a weapon, someone fires a weapon near you, or a bullet/object impacts near you, then you go into combat.  During combat, "ABORT" is disabled.  If you ALT-F4/close anyway, your character is considered "combat logged" and instantly killed and leaves a body.
+		* [NEW] 	Alt-f4 is now locked and will only open your status menu.
 
+	Server.pbo
+Needs Checking
+		* [NEW] 	Offical Hive replaced with Raj's Community hive.
+		* [NEW] 	Hive can now have local db.
+		* [UPDATED] 	Vehicle spawn Procs added.
+		* [UPDATED] 	Vehicle cleanup procs added.
+		* [FIXED] 	Object Gear syncs happen based on radius not just on menu.
+		* [FIXED] 	Vehicle Position is now updated with client position.
 _____________________________________
 HOTFIX : 6 SEPTEMBER 2012
 

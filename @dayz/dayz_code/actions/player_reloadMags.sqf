@@ -18,7 +18,8 @@ _amountMake = count _create;
 
 _qty = 0;
 if (_amountNeed == 1 and _amountMake == 1) then {
-	_qty = gearSlotAmmoCount uiControl;
+	_control = uiNamespace getVariable 'uiControl';
+	_qty = gearSlotAmmoCount _control;
 };
 
 _hasInput = (_amountNeed <= _amountHas);

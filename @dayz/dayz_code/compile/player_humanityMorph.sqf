@@ -17,7 +17,7 @@ player setVariable["updatePlayer",_updates,true];
 dayz_unsaved = true;
 //Logout
 _humanity		= player getVariable["humanity",0];
-_medical 		= _character call player_sumMedical;
+_medical 		= player call player_sumMedical;
 _worldspace 	= [round(direction player),getPosATL player];
 _zombieKills 	= player getVariable ["zombieKills",0];
 _headShots 		= player getVariable ["headShots",0];
@@ -60,8 +60,15 @@ if (count _medical > 0) then {
 	player setVariable ["USEC_injured",false,true];
 	player setVariable ["USEC_inPain",false,true];	
 };
+if (r_fracture_legs) then { player setHit["legs",1]; };
+if (r_fracture_arms) then { player setHit["hands",1]; };
 
 //General Stats
+player setVariable["humanity",_humanity,true];
+player setVariable["zombieKills",_zombieKills,true];
+player setVariable["headShots",_headShots,true];
+player setVariable["humanKills",_humanKills,true];
+player setVariable["banditKills",_banditKills,true];
 player setVariable["characterID",str(_charID),true];
 player setVariable["worldspace",_worldspace,true];
 

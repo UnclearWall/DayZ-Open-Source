@@ -395,6 +395,12 @@
 			<German>verhungern</German>
 			<Russian>от голода</Russian>
 		</Key>
+		<Key ID="str_death_combatlog">
+			<Original>combat logging</Original>
+			<English>combat logging</English>
+			<German>combat logging</German>
+			<Russian>combat logging</Russian>
+		</Key>
 		<Key ID="str_death_unknown">
 			<Original>an unknown cause</Original>
 			<English>an unknown cause</English>

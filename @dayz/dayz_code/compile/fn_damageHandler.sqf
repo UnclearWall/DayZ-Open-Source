@@ -20,12 +20,20 @@ _recordable = false;
 _isPlayer = (isPlayer _source);
 _humanityHit = 0;
 _myKills = 0;
+_sourceZombie = _source isKindOf "zZombie_base";
 
 //Publish Damage
 	//player sidechat format["Processed damage for %1",_unit];
 	//USEC_SystemMessage = format["CLIENT: %1 damaged for %2 (in vehicle: %5)",_unit,_damage,_isMinor,_isHeadHit,_inVehicle];
 	//PublicVariable "USEC_SystemMessage";
 
+if (!_sourceZombie and _damage > 0.1) then {
+	diag_log(format["DMGREPORT: %1 damaged for %2 (in vehicle: %5) by %6",_unit,_damage,_isMinor,_isHeadHit,_inVehicle,_source]);
+	dayz_logDamage = [name _unit, name _source, _damage];
+	publicVariableServer "dayz_logDamage";
+};
+
+/*
 if (_isPlayer) then {
 	if (_damage > 0.1) then {
 		dayz_canDisconnect = false;
@@ -39,6 +47,7 @@ if (_isPlayer) then {
 		_control ctrlShow true;
 	};
 };
+*/
 
 if (_unit == player) then {
 	if (_hit == "") then {

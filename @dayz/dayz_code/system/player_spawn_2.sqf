@@ -272,7 +272,35 @@ while {true} do {
 		
 		hintSilent format["DEBUG MONITOR: \n\nZombies Killed: %1\nHeadshots: %2\nMurders: %10\nBandits Killed: %12\nBlood: %4\nZombies (alive/total): %15/%8\nName: %14\nHumanity: %11",_kills,_headShots,_speed,r_player_blood,round(dayz_temperatur),r_player_infected,dayz_inside,_zombies,_lastSave,_killsH,round(_humanity),_killsB,_freeTarget,dayz_playerName,_zombiesA];
 	};
-	//hintSilent format["%1\n%2\n%3",(dayz_players),player,player42];
+
+	// If in combat, display counter and restrict logout
+	_startcombattimer      = player getVariable["startcombattimer",0];
+	if (_startcombattimer == 1) then {
+		player setVariable["combattimeout", time + 30, true];
+		player setVariable["startcombattimer", 0, true];
+		dayz_combat = 1;
+	};
+
+	_combattimeout = player getVariable["combattimeout",0];
+	if (_combattimeout > 0) then {
+		_timeleft = _combattimeout - time;
+		if (_timeleft > 0) then {
+			hintSilent format["In Combat: %1",round(_timeleft)];
+		} else {
+			hintSilent "Not in Combat";
+			player setVariable["combattimeout", 0, true];
+			dayz_combat = 0;
+			_combatdisplay = uiNamespace getVariable 'DAYZ_GUI_display';
+			_combatcontrol = 	_combatdisplay displayCtrl 1307;
+			_combatcontrol ctrlShow true;
+		};
+	} else {
+		hintSilent "Not in Combat";
+		dayz_combat = 0;
+		_combatdisplay = uiNamespace getVariable 'DAYZ_GUI_display';
+		_combatcontrol = 	_combatdisplay displayCtrl 1307;
+		_combatcontrol ctrlShow true;
+	};
 	
 	/*
 	setGroupIconsVisible [false,false];

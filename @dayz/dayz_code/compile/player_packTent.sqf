@@ -1,4 +1,4 @@
-private["_obj","_ownerID","_dir","_pos","_bag","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr"];
+private["_obj","_ownerID","_dir","_pos","_bag","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_alreadyPacking"];
 _obj = _this;
 _ownerID = _obj getVariable["CharacterID","0"];
 player playActionNow "Medic";
@@ -7,6 +7,12 @@ player removeAction s_player_packtent;
 s_player_packtent = -1;
 
 if(_ownerID == dayz_characterID) then {
+	_alreadyPacking = _obj getVariable["packing",0];
+
+	if (_alreadyPacking == 1) exitWith {cutText [format[(localize "str_player_beingpacked")] , "PLAIN DOWN"]};
+
+	_obj setVariable["packing",1];
+
 	_dir = direction _obj;
 	_pos = getposATL _obj;
 	[player,"tentpack",0,false] call dayz_zombieSpeak;

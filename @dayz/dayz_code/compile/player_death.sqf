@@ -20,6 +20,13 @@ sleep 0.5;
 player setDamage 1;
 0.1 fadeSound 0;
 
+player setVariable ["NORRN_unconscious", false, true];
+player setVariable ["unconsciousTime", 0, true];
+player setVariable ["USEC_isCardiac",false,true];
+player setVariable ["medForceUpdate",true,true];
+r_player_unconscious = false;
+r_player_cardiac = false;
+
 _id = player spawn spawn_flies;
 
 _humanity =		0;
@@ -102,6 +109,8 @@ deleteGroup _myGroup;
 if (count _array > 0) then {
 	_body setVariable ["deathType",_method,true];
 };
+
+_body setVariable["combattimeout", 0, true];
 
 /*
 dayzFlies = player;

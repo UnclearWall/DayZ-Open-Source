@@ -467,7 +467,7 @@ class FSM
        "" \n
        "//Move to target" \n
        "_agent moveTo _targetPos;" \n
-       "_agent forceSpeed 6;" \n
+       "_agent forceSpeed 20;" \n
        "" \n
        "//Check if LOS" \n
        "if (_losCheck == 2) then {" \n

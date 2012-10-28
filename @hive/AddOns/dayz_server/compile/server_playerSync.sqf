@@ -192,7 +192,11 @@ if (_characterID != "0") then {
 		};
 		
 		// Force gear updates for nearby vehicles/tents
-		[_charPos] call server_updateNearbyObjects;
+		_pos = _this select 0;
+		{
+			[_x, "gear"] call server_updateObject;
+		} forEach nearestObjects [_pos, ["Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "Man"], 10];
+		//[_charPos] call server_updateNearbyObjects;
 
 		//Reset timer
 		if (_timeSince > 0) then {

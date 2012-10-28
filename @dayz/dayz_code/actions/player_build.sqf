@@ -13,6 +13,10 @@ _item =			_this;
 _classname = 	getText (configFile >> "CfgMagazines" >> _item >> "ItemActions" >> "Build" >> "create");
 _text = 		getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
 
+_hasbuilditem = _this in magazines player;
+
+if (!_hasbuilditem) exitWith {cutText [format[(localize "str_player_31"),_text,"build"] , "PLAIN DOWN"]};
+
 _dir = getDir player;
 player removeMagazine _item;
 

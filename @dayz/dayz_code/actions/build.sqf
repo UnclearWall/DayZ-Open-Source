@@ -7,9 +7,15 @@ _isWater = 		(surfaceIsWater _location) or dayz_isSwimming;
 if(_isWater) exitWith {cutText [localize "str_player_26", "PLAIN DOWN"];};
 if(_onLadder) exitWith {cutText [localize "str_player_21", "PLAIN DOWN"];};
 
+if (vehicle player != player) exitWith {cutText ["You may not build while in a vehicle", "PLAIN DOWN"]};
+
 _item =			_this;
 _classname = 	getText (configFile >> "CfgMagazines" >> _item >> "ItemActions" >> "Build" >> "create");
 _text = 		getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
+
+_hasbuilditem = _this in magazines player;
+
+if (!_hasbuilditem) exitWith {cutText [format[(localize "str_player_31"),_text,"build"] , "PLAIN DOWN"]};
 
 _dir = getDir player;
 player removeMagazine _item;

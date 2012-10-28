@@ -10,6 +10,10 @@ Camo1_DZ = 		"Camo1_DZ";
 Soldier1_DZ = 	"Soldier1_DZ";
 Rocket_DZ = 	"Rocket_DZ";
 
+dayz_combatLog = "";
+dayz_logDamage = [];
+
+
 //Hunting Variables
 dayZ_partClasses = [
 	"PartFueltank",
@@ -225,6 +229,7 @@ if(!isDedicated) then {
 	dayZ_everyonesTents =	[];
 	dayz_hunger	=			0;
 	dayz_thirst = 			0;
+	dayz_combat =			0;
 	dayz_preloadFinished = 	false;
 	dayz_statusArray =		[1,1];
 	dayz_disAudial =		0;
@@ -255,7 +260,10 @@ if(!isDedicated) then {
 	dayzClickTime =			0;
 	dayz_spawnDelay =		300;
 	dayz_spawnWait =		-300;
+	dayz_lootDelay =		3;
+	dayz_lootWait =			-300;
 	dayz_spawnZombies =		0;
+	dayz_inVehicle =		false;
 	dayz_Magazines = 		[];
 	dayzGearSave = 			false;
 	dayz_unsaved =			false;
@@ -263,7 +271,7 @@ if(!isDedicated) then {
 	dayzDebug = false;
 	dayzState = -1;
 	//uiNamespace setVariable ['DAYZ_GUI_display',displayNull];
-	if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {
-		dayzDebug = true;
-	};
+	//if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {
+	//	dayzDebug = true;
+	//};
 };

@@ -42,7 +42,7 @@ if (_canPickLight and !dayz_hasLight) then {
 	s_player_removeflare = -1;
 };
 
-if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 3)) then {	//Has some kind of target
+if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4)) then {	//Has some kind of target
 	_isHarvested = cursorTarget getVariable["meatHarvested",false];
 	_isVehicle = cursorTarget isKindOf "AllVehicles";
 	_isMan = cursorTarget isKindOf "Man";
@@ -135,7 +135,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 3))
 	};
 	
 	//Repairing Vehicles
-if ((dayz_myCursorTarget != cursorTarget) and !_isMan) then {
+	if ((dayz_myCursorTarget != cursorTarget) and !_isMan and _hasToolbox) then {
 		_vehicle = cursorTarget;
 		{dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;s_player_repairActions = [];
 		dayz_myCursorTarget = _vehicle;

@@ -24,7 +24,6 @@ vehicle_handleInteract = {
 	private["_object"];
 	_object = _this select 0;
 	[_object, "all"] call server_updateObject;
-	[_object, "damage", true] call server_updateObject;
 };
 
 //event Handlers

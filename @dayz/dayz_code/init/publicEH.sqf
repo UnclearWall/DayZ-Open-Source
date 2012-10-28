@@ -36,6 +36,7 @@ if (isServer) then {
 	"dayzLoginRecord"	addPublicVariableEventHandler {_id = (_this select 1) spawn dayz_recordLogin};
 	"dayzCharSave"		addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerSync};
 	"dayzCharDisco"		addPublicVariableEventHandler {_id = (_this select 1) spawn server_characterSync};
+	"dayz_logDamage"	addPublicVariableEventHandler {_id = (_this select 1) spawn server_logDamage};
 };
 
 //Client only
@@ -48,4 +49,5 @@ if (!isDedicated) then {
 	"changeCharacter"	addPublicVariableEventHandler {(_this select 1) call player_serverModelChange};
 	"dayzSwitch"		addPublicVariableEventHandler {(_this select 1) call server_switchPlayer};
 	"dayzFire"			addPublicVariableEventHandler {nul=(_this select 1) spawn BIS_Effects_Burn};
+	"dayz_combatLog"	addPublicVariableEventHandler {nul=(_this select 1) spawn player_combatLogged};
 };

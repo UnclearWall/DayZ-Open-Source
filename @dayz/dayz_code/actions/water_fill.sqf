@@ -12,6 +12,13 @@ _objectsWell = 	[];
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 if (_onLadder) exitWith {cutText [(localize "str_player_21") , "PLAIN DOWN"]};
 
+_hasbottleitem = _this in magazines player;
+
+_config = configFile >> "CfgMagazines" >> _item;
+_text = getText (_config >> "displayName");
+
+if (!_hasbottleitem) exitWith {cutText [format[(localize "str_player_31"),_text,"fill"] , "PLAIN DOWN"]};
+
 if (!dayz_isSwimming) then {
 	player playActionNow "PutDown";
 };
